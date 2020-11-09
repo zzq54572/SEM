@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+<p><h1>Details</h1></p>
+
+</div>   
+<p></p>
+
+   
+    <div class="container">
+
+  <form action={{url_for('regulation_update')}} method="POST">
+     <div class="input-group mb-3" hidden='hidden'>
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default" >ID</span>
+       </div>
+  <input type="text" class="form-control"  name="id"  value="{{row.id}}">
+   </div>
+   
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">TLA</span>
+       </div>
+  <input type="text" class="form-control"  name="tla" value="{{row.tla}}">
+   </div>
+ 
+    <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Reporter</span>
+       </div>
+  <input type="text" class="form-control"  name="reporter" value="{{row.reporter}}">
+   </div>
+
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">BeginTime</span>
+       </div>
+  <input type="text" class="form-control"  name="begin_time" value="{{row.begin_time}}">
+   </div>
+
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">EndTime</span>
+       </div>
+  <input type="text" class="form-control"  name="end_time" vale="{{row.end_time}}">
+   </div>
+
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Summary</span>
+       </div>
+  <input type="text" class="form-control"  name="summary" value="{{row.summary}}">
+   </div>
+
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+       </div>
+          <textarea type="text" class="form-control"  name="description" value="{{row.description}}">{{ row.description }}</textarea>
+   </div>
+
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Solution</span>
+       </div>
+          <textarea type="text" class="form-control"  name="solution" value="{{row.solution}}">{{row.solution}}</textarea>
+   </div>
+   
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Enabled</span>
+       </div>
+  <input type="text" class="form-control"  name="enabled" value="{{row.enabled}}">
+   </div>
+   
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">KeyWords</span>
+       </div>
+  <input type="text" class="form-control"  name="key_words" value="{{row.key_words}}">
+   </div>
+   
+
+ <p><button class="btn btn-primary" type="submit"  name="{% if opt=="AddNew" %}addnew_update{% elif opt=="Modify" %}modify_update{% elif opt=="Remove" %}remove_update{% endif %}">{% if opt=="AddNew" %} Add {% elif opt=="Modify" %} Modify {% elif opt=="Remove" %}Remove   {% endif %} </button>
+     <button class="btn btn-primary" type="submit" name="cancel">Cancel</button> </p>
+    </form>
+    
+    
+</div>   
+
+ 
+{% endblock %}

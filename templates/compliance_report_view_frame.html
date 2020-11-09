@@ -1,0 +1,104 @@
+{% extends "base_frame.html" %}
+
+{% block content %}
+<div class="container">
+<div name="Declare" style="color:red;">
+ <div >
+ <p style="text-align:center;"><h2>Compliance</h2></p> 
+ <p ><h4>-----You must comply with the following points on your duty-----<p><h4>
+ </div>
+ <ol>
+<li><span> Meeting SLA target time is of the first importance. You must have the issue addressed sooner to ensure SLA. If you are not sure about something, please contact your manager or USOncall/Tech Lead immediately.  </span></li>
+
+<li><span> Immediately respond in DM JIRA or email when issue occurs; beyond 15 minutes is unacceptable.  </span></li>
+
+<li><span> Check each ENV status periodically, the regular interval should be less than 30 minutes.  </span></li>
+
+<li><span> For the CRITICAL issue, open a conversation with team to discuss.  </span></li>
+
+<li><span> Please let another member to peer check when you take actions on SEV1 ENV.  </span></li>
+
+<li><span> The status report should be sent out to team three times at 10pm/12am/3am EST every day.  </span></li>
+
+<li><span> Please keep the future task in the status email until it is done  </span></li>
+
+<li><span> Never decide to kill Merch int jobs by yourself, please check with US Oncall or Tech Lead.  </span></li>
+
+<li><span> When you mail with customer, please always copy to <u>Ken Persson, &lt;TAM&gt;,&lt;Tech Lead&gt;, &lt;US Oncall&gt;, CRDSSOONCALL, Pune SSO AMS &lt;punessoams@wnt.sas.com&gt;  </u></span></li>
+
+<li><span> When you hand off to US Oncall, please have an email to US ONCALL if there is thing to hand over to him/her, always copying to <u>Ken Persson, CRDSSOONCALL.</u> </span></li>
+</ol>
+</div>
+
+<div name="CheckList">
+<p color="red"><h4>-----Check List-----<p><h4>
+<ul name=checklist_ul>
+<li><span> Have you respond/reply Cary, customer or other parties request or questions(JIRA, EMAIL,SN,..)?(YES/NO) </span><br/>
+{{form.is_respond}}<p><p/>
+</li>
+
+<li><span> Confirmed there was no warning notification without handling?(YES/NO) </span><br/>
+{{form.is_warning}}<p><p/>
+</li>
+
+<li><span> Tickets (JIRA, SN) assigned to [CRD,AMS, AMS Pune] </span>
+   <font color="blue",size="3">
+   <ul>
+    <li><span>JIRA Tickets</span></li>   
+       <ol>
+        {%  for ticket in jira_tickets %}
+          <li><span>  {{ticket}} </span></li>
+        {%  endfor %}
+   </ol><p></p>
+    <li><span>ServiceNow Tickets</span></li>
+         <ol>
+         {%  for ticket in servicenow_tickets %}
+            <li><span>  {{ticket}} </span></li>
+        {%  endfor %}
+         </ol><p></p>
+   </ul>
+   </font>
+</li>
+<li><span> Walmart Small File tickets + Walmart Duplicate Files </span>
+          <ol>
+         {%  for ticket in smallfile_tickets %}
+            <li><span>  {{ticket}} </span></li>
+        {%  endfor %}
+        </ol><p></p>
+</li>
+
+<li><span> Check Incident Dashboard </span><br/>
+<a target="_blank" href="https://www.ondemand.sas.com/jira/secure/Dashboard.jspa?selectPageId=20448">https://www.ondemand.sas.com/jira/secure/Dashboard.jspa?selectPageId=20448</a>
+         <ol>
+         <li><span>Add right label (Lev0, Lev1,Lev2,Lev3) in the ticket</span></li>
+         <li><span>Clean up the ticket as you can</span></li>
+         </ol>
+<p></p>
+</li>
+
+
+
+
+<li><span> Other Tasks (From Email, IM, call, etc.) </span>
+         <ol>
+         <li><span>Shift report deliver daily</span></li>
+         <li><span>AMS dashboard update daily</span></li>
+         
+         {%  for task in other_tasks %}
+            <li><span>  {{task}} </span></li>
+        {%  endfor %}
+        </ol><p></p>
+
+</li>
+</ul>
+
+</div>
+<div name="TlaStatus">
+  <p color="red"><h4>-----Tla Status-----<p><h4> 
+[%TlaStatus%]
+
+</div>
+
+
+</div>
+{% endblock %}

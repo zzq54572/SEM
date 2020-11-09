@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加元素</title>
+    <!--script src="jquery-3.3.1.js"></script-->
+    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        //var i = 1;
+        $(function () {
+            $("#box").on('click','.addp',function () {
+                //$('#pp').after($("#pp").clone());
+                var addP = $(this).parent().clone();
+                //alert($(addP).attr('id'))
+                //var ip=addP.children("input");
+                //alert($(ip).attr("name"));
+                //$(ip).attr({name:'hahaha'});
+                //alert($(ip).attr("name"));
+                $(this).parent().after(addP);
+                $('#pp a').each(function (i,e) {
+                    $(e).text(i+1);
+                    
+                })    
+                $('#pp input').each(function(i,e){
+                    $(e).attr({name:'ticketinput'+i})
+                    alert($(e).attr('name'));
+                })    
+                    
+                 
+            });
+            $("#box").on("click",'.delp',function () {
+                $(this).parent().remove();
+                $('#pp a').each(function (i,e) {
+                    $(e).text("new");
+                })
+            })
+        });
+ 
+    </script>
+</head>
+<body>
+<div id="box"><p id="pp"><a>1</a><input type="text" id='gx' name="gx"><button class='addp'>+</button><button class='delp'>-</button></p></div>
+</body>
+</html>

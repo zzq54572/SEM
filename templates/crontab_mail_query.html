@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block left %}
+
+<div style=" overflow-y:auto; overflow-x:auto;height:750px;">
+
+<div class="card container">
+  <div class="card-header">
+    Crontab Mail List
+  </div>
+  <div class="card-body">
+      {% for row in rows %}
+     <form action={{url_for('crontab_mail_download')}} method="POST">
+       <div >
+           <input  name="EntryID" value="{{row["EntryID"]}}">
+           <input  name="Subject" value="{{row["Subject"]}}">
+        </div>
+      <p class="card-title">
+          <span> {{ loop.index }}:  <a href="./crontab_mail_view?json={{ row["json"]}}">[{{row["ReceivedTime"]}}]{{ row["Subject"] }}   </a></span>
+          <!-- input type="file" id="donwload_tgt_path" name="donwload_tgt_path" webkitdirectory directory -->
+          <button class="btn btn-primary" type="submit" id="button-download" name="show_attachement">Attachment</button>
+         <!-- button class="btn btn-primary" type="submit" id="button-remove" name="remove">Remove</button -->
+     </p>
+
+
+    </form>
+    {% endfor %}
+</div>
+</div>
+
+
+</div>
+{% endblock %}

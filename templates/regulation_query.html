@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+
+  <form action={{url_for('regulation_query')}} method="POST">
+   <span class="btn btn-outline-dark">TLA ></span></span>
+
+
+      <input type="text" id="query_string" name="query_string" hidden="hidden" style="background-color: #e3f2fd; width:200px;" >
+
+
+      <select name="tla_s" id="tla_s" style="background-color: #e3f2fd; color:red; width: 200px;" onchange="this.nextSibling.value=this.value"  >
+       {% for tla in tlas %}
+        <option value="{{ tla }}" > {{ tla }}</option>
+        {% endfor %}
+       <option selected></option>
+       </select><input name="tla" style="width:100px;position:relative;left:0px;">
+
+      <button class="btn btn-primary" type="submit" id="button-query" name="query">Query</button>
+      <button class="btn btn-primary" type="submit" id="button-query" name="query_all">QueryAll</button>
+      <button class="btn btn-primary" type="submit" id="button-addnew" name="addnew">Add</button>
+  <p><h1>Details</h1></p>
+
+    </form>
+    
+    
+</div>
+<div style=" overflow-y:auto; overflow-x:auto;height:750px;">
+
+<div class="card container">
+  <div class="card-header">
+    Details of Regulation
+  </div>
+  <div class="card-body">
+      {% for row in rows %}
+     <form action={{url_for('regulation_query')}} method="POST">
+
+    <div hidden='hidden'>
+    <input type="text" name="id" value="{{row.id}}">
+    <input type="text" name="tla" value="{{row.tla}}">
+    <input type="text" name="reporter" value="{{row.reporter}}">
+     <input type="text" name="begin_time" value="{{row.begin_time}}">
+    <input type="text" name="end_time" value="{{row.end_time}}">
+    <input type="text" name="summary" value="{{row.summary}}">
+     <input type="text" name="description" value="{{row.description}}">
+    <input type="text" name="solution" value="{{row.solution}}">
+    <input type="text" name="enabled" value="{{row.enabled}}">
+    <input type="text" name="key_words" value="{{row.key_words}}">
+    </div>
+         <div >
+    <p class="card-title" hidden><span>  Id : </span>{{row.id}}</p>
+    <p class="card-title" hidden><span>  Tla : </span>{{row.tla}}</p>
+    <p class="card-title" hidden><span>  Reporter : </span>{{row.reporter}}</p>
+    <p class="card-title" hidden><span>  Begin_time : </span>{{row.begin_time}}</p>
+    <p class="card-title" hidden><span>  End_time : </span>{{row.end_time}}</p>
+    <p class="card-title" hidden><span>  Summary : </span>{{row.summary}}</p>
+    <p class="card-title" hidden><span>  Description : </span>{{row.description}}</p>
+    <p class="card-title" hidden><span>  Solution : </span>{{row.solution}}</p>
+    <p class="card-title" hidden><span>  Enabled : </span>{{row.enabled}}</p>
+    <p class="card-title" hidden><span>  Key_words : </span>{{row.key_words}}</p>
+
+     <p class="card-title"><span> {{ loop.index }}:  <a href="./regulation_view?id={{ row.id }}">{{row.summary}}</a></span> <button class="btn btn-primary" type="submit" id="button-modify" name="modify">Modify</button>
+    <button class="btn btn-primary" type="submit" id="button-remove" name="remove">Remove</button></p>
+
+
+  </div>
+          </form>
+    {% endfor %}
+</div>
+</div>
+
+
+</div>
+{% endblock %}

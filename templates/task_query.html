@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+
+  <form action={{url_for('task_query')}} method="POST">
+
+   <select style="background-color: #e3f2fd; color:red; width: 200px;"  name="taskdays">
+       <option value="day1" selected>Last 1 day</option>
+       <option value="day2">Last 2 days</option>
+       <option value="day3">Last 3 days</option>
+       <option value="day4">Last 4 days</option>
+       <option value="day5">Last 5 days</option>
+       <option value="day6">Last 6 days</option>
+       <option value="day7">Last 7 days</option>
+   </select>
+
+      <button class="btn btn-primary" type="submit" id="button-query" name="refresh">Refresh</button>
+      <!-- button class="btn btn-primary" type="submit" id="button-query" name="done">Done</button -->
+      <!-- button class="btn btn-primary" type="submit" id="button-addnew" name="addnew">Add</button -->
+    </form>
+    
+    
+</div>
+<div style=" overflow-y:auto; overflow-x:auto;height:750px;">
+<div class="card container">
+  <div class="card-header">
+    Jiras
+  </div>
+<div class="card-body">
+    <ol>
+    {% for row in jiras %}
+        <li><a target="_blank" href="https://www.ondemand.sas.com/jira/browse/{{ row["issuekey"] }}" > {{ row["issuekey"] }}: {{ row["summary"] }}</a></li>
+    {% endfor %}
+    </ol>
+</div>
+</div>
+
+
+
+<form action={{url_for('task_query')}} method="POST">
+
+<div class="card container">
+  <div class="card-header">
+    Tasks
+  </div>
+  <div class="card-body">
+
+     <ol>
+      {% for row in tasks %}
+         <div hidden='hidden'>
+    <input type="text" name="id" value="{{row.id}}">
+    <input type="text" name="tla" value="{{row.tla}}">
+    <input type="text" name="env" value="{{row.env}}">
+    <input type="text" name="assigner" value="{{row.assigner}}">
+    <input type="text" name="lev" value="{{row.lev}}">
+    <input type="text" name="ticket_type" value="{{row.ticket_type}}">
+    <input type="text" name="ticket_number" value="{{row.ticket_number}}">
+    <input type="text" name="begin_time" value="{{row.begin_time}}">
+    <input type="text" name="end_time" value="{{row.end_time}}">
+    <input type="text" name="description" value="{{row.description}}">
+    <input type="text" name="enabled" value="{{row.enabled}}">
+    <input type="text" name="key_words" value="{{row.key_words}}">
+       </div>
+        <div>
+         <li> {{row.tla}}{% if row.env.strip()!="" %}}-{{row.env}} {% endif %} {% if row.ticket_number !="" %}&lt;{{row.ticket_number}} &gt;{% endif %}:{{row.description}}
+             <button class="btn btn-primary" type="submit" id="button-modify" name="modify">Modify</button>
+             <button class="btn btn-primary" type="submit" id="button-remove" name="remove">Remove</button>
+         </li>
+        </div>
+    {% endfor %}
+     </ol>
+
+
+  </div>
+</div>
+
+
+
+</form>
+
+</div>
+{% endblock %}

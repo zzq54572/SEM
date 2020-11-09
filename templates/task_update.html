@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+<p><h1>TLA Details</h1></p>
+
+</div>   
+<p></p>
+
+   
+    <div class="container">
+
+  <form action={{url_for('task_update')}} method="POST">
+     <div class="input-group mb-3" hidden='hidden'>
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default" >ID</span>
+       </div>
+  <input type="text" class="form-control"  name="id"  value="{{row.id}}">
+   </div>
+   
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">TLA</span>
+       </div>
+  <input type="text" class="form-control"  name="tla" value="{{row.tla}}">
+   </div>
+ 
+    <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Env</span>
+       </div>
+  <input type="text" class="form-control"  name="env" value="{{row.env}}">
+   </div>
+   
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Assigner</span>
+       </div>
+  <input type="text" class="form-control"  name="assigner" value="{{row.assigner}}">
+   </div>
+
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Lev</span>
+       </div>
+  <input type="text" class="form-control"  name="lev" value="{{row.lev}}">
+   </div>
+
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Ticket_type</span>
+       </div>
+  <input type="text" class="form-control"  name="ticket_type" value="{{row.ticket_type}}">
+   </div>
+
+
+  <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Ticket_number</span>
+       </div>
+  <input type="text" class="form-control"  name="ticket_number" value="{{row.ticket_number}}">
+   </div>
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Begin_time</span>
+       </div>
+  <input type="text" class="form-control"  name="begin_time" value="{{row.begin_time}}">
+   </div>
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">End_time</span>
+       </div>
+  <input type="text" class="form-control"  name="end_time" value="{{row.end_time}}">
+   </div>
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+       </div>
+  <input type="text" class="form-control"  name="description" value="{{row.description}}">
+   </div>
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Enabled</span>
+       </div>
+  <input type="text" class="form-control"  name="enabled" value="{{row.enabled}}">
+   </div>
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Key_words</span>
+       </div>
+  <input type="text" class="form-control"  name="key_words" value="{{row.key_words}}">
+   </div>
+
+
+ <p><button class="btn btn-primary" type="submit"  name="{% if opt=="AddNew" %}addnew_update{% elif opt=="Modify" %}modify_update{% elif opt=="Remove" %}remove_update{% endif %}">{% if opt=="AddNew" %} Add {% elif opt=="Modify" %} Modify {% elif opt=="Remove" %}Remove   {% endif %} </button>
+     <button class="btn btn-primary" type="submit" name="cancel">Cancel</button> </p>
+    </form>
+
+
+</div>
+
+ 
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block script %}
+    <script>
+    function submitForm(){
+        var form = document.getElementById("handoff");
+        form.submit();
+    }
+
+
+    </script>
+
+{% endblock %}
+
+
+
+{% block left %}
+
+
+    <div class="handoff">
+
+    <form id="handoff" action={{url_for('handoff_create')}} method="POST">
+<div align="center">
+    <span>Owner:</span>>
+    <select onchange="submitForm();" name="owner" id="owner" style="background-color: #e3f2fd; color:red; width: 100;" >
+        <option value="principal" {% if owner=="principal" %} selected {% endif %} > Principal</option>
+        <option value="assistant" {% if owner=="assistant" %} selected {% endif %}  >Assistant</option>
+        <option value="all" {% if owner=="all" %} selected {% endif %}  >All </option>
+    </select> &nbsp &nbsp &nbsp
+
+    <span>HandOff To:</span>>
+    <select name="handoff_to" id="handoffto" style="background-color: #e3f2fd; color:red; width: 100;" >
+        <option value="US" {% if handoff_to=="US" %} selected {% endif %}  > US</option>
+        <option value="Pune" {% if handoff_to=="Pune" %} selected {% endif %}  >Pune</option>
+    </select> &nbsp &nbsp &nbsp
+    <input class="btn btn-primary" type="submit" name="handoff_submit" value="Submit">
+</div>
+    <div style=" overflow-y:auto; overflow-x:auto;height:800px;">
+        {% for tla in tlas %}
+
+<div class="card container" >
+  <div class="card-header">
+      <span style="color:red;font-size: larger">{{tla}}</span>> <textarea name="{{ tla }}" style="width: 400px; rows:3"> </textarea>
+  </div>
+</div>
+{% endfor %}
+    </div>
+</form>
+    </div>
+{% endblock %}

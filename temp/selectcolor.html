@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>无标bai题文档du</title>
+<script>
+function fcolor(event){
+    var e=event||window.event;
+    var obj=e.srcelement?e.srcelement:e.target;
+    var txt=document.getElementById('text1');
+    var color=obj.options[obj.selectedIndex].value;
+     
+    txt.style.color=color;
+}
+window.onload=function(){
+    var obj=document.getElementById('color1');
+    obj.onchange=fcolor;
+}
+</script>
+</head>
+ 
+<body>
+<form name="form1">
+  <input id="text1" name="textfield" type="text" value="demo text" >
+  <select id="color1" name="menu1" >
+    zhi  <option value="black">hei</option>
+      <option value="blue">blue</option>
+      <option value="red">red</option>
+  </select>
+
+
+
+
+<select name=protect_email size=1 style="background: #009966; color: #FFF;" onChange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">&nbsp; &nbsp;&nbsp;<option value=0 style="background: #009966; color: #FFF;" selected>Protect my email</option>;&nbsp;&nbsp;<option value=1 style="background: #FF0000; color: #FFF;">Show email on advert</option>;</select>
+</form>
+
+</body>
+</html>

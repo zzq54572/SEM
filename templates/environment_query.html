@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+
+  <form action={{url_for('environment_query')}} method="POST">
+   <span class="btn btn-outline-dark">TLA ></span></span>
+
+
+      <input type="text" id="tlaa" name="query_string" hidden="hidden" style="background-color: #e3f2fd; width:200px;" >
+
+
+      <select name="tla_s" id="tla_s" style="background-color: #e3f2fd; color:red; width: 200px;" onchange="this.nextSibling.value=this.value"  >
+       {% for tla in tlas %}
+        <option value="{{ tla }}" > {{ tla }}</option>
+        {% endfor %}
+       <option selected></option>
+       </select><input name="tla" style="width:100px;position:relative;left:0px;">
+        <select name="deploye_type" style="background-color: #e3f2fd; color:red; width: 200px;" >
+            <option value="PROD" >PROD</option>
+            <option value="TEST">TEST</option>
+            <option value="DEV">DEV</option>
+            <option value="PSP">PSP</option>
+            <option value="MOD">MOD</option>
+
+        </select>
+      <button class="btn btn-primary" type="submit" id="button-query" name="query">Query</button>
+      <button class="btn btn-primary" type="submit" id="button-query" name="query_all">QueryAll</button>
+      <button class="btn btn-primary" type="submit" id="button-addnew" name="addnew">Add</button>
+  <p><h1>TLA Details</h1></p>
+
+    </form>
+    
+    
+</div>
+<div style=" overflow-y:auto; overflow-x:auto;height:750px;">
+{% for row in rows %}
+<form action={{url_for('environment_query')}} method="POST">
+
+<div hidden='hidden'>
+<input type="text" name="id" value="{{row.id}}">
+<input type="text" name="tla"  value="{{row.tla}}">
+<input type="text" name="deployment_type"  value="{{row.deployment_type}}">
+<input type="text" name="server_type"  value="{{row.server_type}}">
+<input type="text" name="server_machine"  value="{{row.server_machine}}">
+<input type="text" name="terminal_machine"  value="{{row.terminal_machine}}">
+<input type="text" name="comment"  value="{{row.comment}}">
+<input type="text" name="monitored_by"  value="{{row.monitored_by}}">
+<input type="text" name="enabled"  value="{{row.enabled}}">
+<input type="text" name="key_words"  value="{{row.key_words}}">
+<input type="text" name="is_compliance"  value="{{row.is_compliance}}">
+</div>
+<div class="card container">
+  <div class="card-header">
+    Details of {{row.tla}}
+  </div>
+  <div class="card-body">
+<p class="card-text" hidden='hidden'><span>id </span>{{row.id}}</p>
+<h5 class="card-text"><span>Envionment: </span>{{row.tla}}</h5>
+<p class="card-text"><span>Deployment Type: </span>{{row.deployment_type}}</p>
+<p class="card-text"><span>Server Type: </span>{{row.server_type}}</p>
+<p class="card-text"><span>Server Machine: </span>{{row.server_machine}}</p>
+<p class="card-text"><span>Terminal_Machine: </span>{{row.terminal_machine}}</p>
+<p class="card-text"><span>Comment: </span>{{row.comment}}</p>
+<p class="card-text"><span>Monitored By: </span>{{row.monitored_by}}</p>
+<p class="card-text"><span>Enabled: </span>{{row.enabled}}</p>
+<p class="card-text"><span>Key Words: </span>{{row.key_words}}</p>
+<p class="card-text"><span>Is Compliance: </span>{{row.is_compliance}}</p>
+      <button class="btn btn-primary" type="submit" id="button-modify" name="modify">Modify</button>
+    <button class="btn btn-primary" type="submit" id="button-remove" name="remove">Remove</button>
+  </div>
+</div>
+
+</form>
+{% endfor %}
+</div>
+{% endblock %}

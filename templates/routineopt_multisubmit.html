@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+
+{% block script %}
+    <script>
+
+        $(function() {
+             $('#tla').bind('change', function() {
+                $.getJSON($SCRIPT_ROOT + '/routine_refresh_opt', {
+                   "tla": $('#tla').val()
+         }, function(data) {
+                    //alert(data);
+                    $(".dynamic_opt_routine_comment").remove()
+                    var json=JSON.parse(data)
+                    for (var key in json){
+                        //alert(key+":"+json[key])
+                        var new_opt_com=$("#comopttpl").clone()
+                        new_opt_com.removeAttr("id")
+                        new_opt_com.removeAttr("hidden")
+                        new_opt_com.attr("name",key)
+                        new_opt_com.attr("class","dynamic_opt_routine_comment")
+                        new_opt_com.val(json[key])
+                        new_opt_com.text(key)
+                        //$("#comopttpl").after(new_opt_com)
+                        $('#tla_comment').append(new_opt_com)
+                        //alert(new_opt_com.attr("value"))
+
+                    }
+        //$("#routine_comment").text(data.result);
+      });
+      return false;
+    });
+  });
+
+
+
+     /////////////////////////////////////////////
+     ////////////////////////////////////////////
+     ///////////////////////////////////////////////
+        var n =1;
+        var i =1;
+        var j =1;
+        var k =1;
+
+        $(function () {
+
+
+
+            //////////////////////////////////////////////
+            $("#routineopt_add").on('click',function () {
+                //alert($(this).attr("id"))
+                //var routine_cmpl=$('#routines_to_submit').find("spam")
+                var new_routine = $('#dynamic_div_routine_cmpl').clone();
+                new_routine.removeAttr("hidden")
+                new_routine.attr("id", "dynamic_div_routine");
+                new_routine.attr("class", "dynamic_routine");
+
+                var new_routine_input_tla = $(new_routine).find("input");
+                new_routine_input_tla.removeAttr("disabled")
+                new_routine_input_tla.attr("class", "dynamic_routine");
+                new_routine_input_tla.val($('#tla').val());
+
+                var new_routine_area_comment = $(new_routine).find("textarea");
+                new_routine_area_comment.removeAttr("disabled")
+                new_routine_area_comment.attr("class", "dynamic_routine");
+                var note=$('#tla_comment').val()
+                var reg=new RegExp("#n#","g")
+                note=note.replace(reg,"\n");
+                new_routine_area_comment.text(note);
+
+                //$(new_routine).find('textarea').text($('#tla_comment').val());
+                var new_routine_btn_delete = $(new_routine).find("button");
+                new_routine_btn_delete.attr("class", "dynamic_routine");
+                 $(new_routine_btn_delete).on('click',function () {
+
+                     //$(this).parent().remove()
+                     //alert($(this).attr("id"))
+                     parent1 = $(this).parent()
+                     //alert($(parent1).attr("id"))
+                     parent2 = $(parent1).parent()
+                     //alert($(parent2).attr("id"))
+                     parent3 = $(parent2).parent()
+                     //alert($(parent3).attr("id"))
+                     parent4 = $(parent3).parent()
+                     //alert($(parent4).attr("id"))
+                     $(parent3).remove()
+                     $('#routines_to_submit div[class="dynamic_routine"]').each(function(n,e){
+                     $(e).attr("id","dynamic_div_routine_"+n);
+                     $(e).attr("name","dynamic_div_routine_"+n);
+                     });
+
+                     $('#routines_to_submit input[class="dynamic_routine"]').each(function(i,e){
+                         $(e).attr("id","dynamic_input_routine_tla_"+i);
+                         $(e).attr({name:'dynamic_input_routine_tla_'+i});
+                     });
+
+                     $('#routines_to_submit button[class="dynamic_routine"]').each(function(j,e){
+                         $(e).attr("id","dynamic_btn_routine_del_"+j);
+                         $(e).attr({name:'dynamic_btn_routine_del_'+j});
+                     });
+
+                     $('#routines_to_submit textarea[class="dynamic_routine"]').each(function(k,e){
+                         $(e).attr("id","dynamic_textarea_routine_comment_"+k);
+                         $(e).attr({name:'dynamic_textarea_routine_comment_'+k});
+                     });
+                })
+
+
+
+                $('#routines_to_submit').append(new_routine);
+
+                $('#routines_to_submit div[class="dynamic_routine"]').each(function(n,e){
+                    $(e).attr("id","dynamic_div_routine_"+n);
+                    $(e).attr("name","dynamic_div_routine_"+n);
+                });
+
+                $('#routines_to_submit input[class="dynamic_routine"]').each(function(i,e) {
+                    $(e).attr("id", "dynamic_input_routine_tla_" + i);
+                    $(e).attr({name: 'dynamic_input_routine_tla_' + i});
+                });
+
+                $('#routines_to_submit button[class="dynamic_routine"]').each(function(j,e){
+                    $(e).attr("id","dynamic_btn_routine_del_"+j);
+                    $(e).attr({name:'dynamic_btn_routine_del_'+j});
+                });
+
+                $('#routines_to_submit textarea[class="dynamic_routine"]').each(function(k,e) {
+                    $(e).attr("id", "dynamic_textarea_routine_comment_" + k);
+                    $(e).attr({name: 'dynamic_textarea_routine_comment_' + k});
+                });
+
+
+
+
+
+            });
+
+
+
+
+
+        });
+
+
+    </script>
+
+{% endblock %}
+
+
+
+{% block left %}
+
+
+    <div class="routineopt_form">
+
+    <form id="routineopt" action={{url_for('routine_comment_submit')}} method="POST">
+    <div align="center">
+    <span>TLA:</span>>
+    <select class="refreshOpt();" name="tla" id="tla" style="background-color: #e3f2fd; color:red; width: 150px;" >
+        {% for tla in tlas %}
+        <option value="{{ tla }}" {% if form["tla"] == tla %} selected {% endif %} > {{ tla }}</option>
+        {% endfor %}
+        <option value="NULL" {% if form["tla"] == "NULL" %} selected {% endif %} > </option>
+    </select> &nbsp &nbsp &nbsp
+
+
+    <span>Options:</span>>
+    <option id="comopttpl" value="template" hidden="hidden" ></option>
+    <select id="tla_comment" name="tla_comment" style="background-color: #e3f2fd; color:red; width: 150px;" >
+
+
+    </select>    &nbsp &nbsp &nbsp
+    <button class="btn btn-primary" type="button" name="routineopt_add" id="routineopt_add" >Add</button>
+    <!--input type="submit" name="routineopt_submit" value="Submit" -->
+    <input class="btn btn-primary" type="submit" name="routineopt_multi_submit" value="Submit">
+</div>
+   <!-- form id="routineoptform_submit" action={{url_for('routine_comment_submit')}} method="POST" -->
+
+ <div id="routines_to_submit" style=" overflow-y:auto; overflow-x:auto;height:900px;border:2px solid blue;">
+<p></p>
+<div id="dynamic_div_routine_cmpl" class="dynamic_routine_cmpl" style="border:2px solid cornflowerblue;min-height:125px;max-height:125px;" hidden="hidden">
+    <div id="button-p-div" align="left" style="float:left;width:10%;">
+    <p align="right" >
+        <input id ="dynamic_input_routine_tla_cmpl" class="dynamic_input_routine_tla_cmpl" name="dynamic_input_routine_tla_cmpl" style="background-color:transparent;border:0;width:90px;font-size:20px;font-family: bold;text-align: right; " value="tla" disabled>
+    </p>
+     <p id="button-p" align="right" >
+        <button id="dynamic_btn_routine_del_cmpl" type="button" class="dynamic_btn_routine_del_cmpl btn btn-primar" name="dynamic_btn_routine_del_cmpl" >Delete</button>
+     </p>
+    </div>
+
+    <div style="float:left;width:90%;top:0px">
+    <textarea id="dynamic_textarea_routine_comment_cmpl" class="dynamic_textarea_routine_comment_cmpl" name="dynamic_textarea_routine_comment_cmpl"   style="min-height:120px;min-width:450px;max-height:120px;max-width:450px;" disabled > </textarea>
+    </div>
+
+</div>
+
+ </div>
+  </form>
+
+    </div>
+{% endblock %}

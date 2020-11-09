@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block left %}
+
+<p></p>
+
+   
+    <div class="container">
+
+  <form action={{url_for('crontab_mail_view')}} method="POST">
+      <input type="text" class="form-control"  name="id" value="{{row["EntryID"]}}" hidden>
+      <p class="card-title" ><span>  Id : </span>{{row["EntryID"]}}</p>
+      <p class="card-title" ><span>  ReceivedTime: </span>{{row["ReceivedTime"]}}</p>
+      <p class="card-title" ><span> <b> Subject:</b> </span>{{row["Subject"]}}</p>
+      <p class="card-title" ><span>  <b> Body:</b>  </span>{{row["Body"]}}</p>
+      <p class="card-title" ><span>  <b> Attachments:</b>  </span>{{row["Attachments"]}}</p>
+
+<p> <button class="btn btn-primary" type="submit" name="cancel">Cancel</button> </p>
+    </form>
+    
+    
+</div>   
+
+ 
+{% endblock %}

@@ -1,0 +1,582 @@
+<html>
+<head>
+ <meta charset="utf-8">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <table>
+    <table class="table " style="border:2px solid blue;">
+  <thead>
+    <tr  style="border:2px solid blue;">
+      <!-- th scope="col">tla</th -->                 
+       <th scope="col"  style="border:1px dashed blue; text-align:center;" >Minute</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Hour</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Day</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Month</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Week</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;" >Command</th>
+       <!-- th scope="col">crontab</th -->
+       <th scope="col"  style="border:1px dashed blue;">Enabled</th>
+       <th scope="col"  style="border:1px dashed blue;">Key Words</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">136</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">*/01</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">nohup/bls/warehouse/default/blsetlusr/scripts/startui.sh&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">137</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">*/01</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">nohup/bls/warehouse/default/blsetlusr/scripts/stopui.sh&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">138</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">6</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">cd/sso/blsshared/signal;touchstart.midtier.trg&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">139</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">20</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">tue-thu</td>
+       <td scope="col">cd/sso/blsshared/signal;touchstop.midtier.trg&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">140</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">17</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">fri</td>
+       <td scope="col">cd/sso/blsshared/signal;touchstop.midtier.trg&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">141</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">17</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sat</td>
+       <td scope="col">cd/sso/blsshared/signal;touchstop.midtier.trg&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">142</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">17</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sun</td>
+       <td scope="col">cd/sso/blsshared/signal;touchstop.midtier.trg&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">143</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">21-23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sat</td>
+       <td scope="col">cd/bls/warehouse/default/blsetlusr/scripts;./bpsaswrapper.shbatchListener.sassaturday:report&gt;&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">144</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">16-21</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sun</td>
+       <td scope="col">cd/bls/warehouse/default/blsetlusr/scripts;./bpsaswrapper.shbatchListener.sassunday:report&gt;&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">145</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">21-23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">mon-thu</td>
+       <td scope="col">cd/bls/warehouse/default/blsetlusr/scripts;./bpsaswrapper.shbatchListener.sasnightly:report&gt;&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">146</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">21-23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">fri</td>
+       <td scope="col">cd/bls/warehouse/default/blsetlusr/scripts;./bpsaswrapper.shbatchListener.sasfriday:report&gt;&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">147</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">17-20</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">fri</td>
+       <td scope="col">cd/bls/warehouse/default/blsetlusr/scripts;./bpsaswrapper.shbatchListener.sasfriinv:report&gt;&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">148</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">12</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sun</td>
+       <td scope="col">cd/bls/warehouse/default/blsetlusr/scripts;./utilArchiveSourceFiles.sh&gt;&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">149</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">12</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sun</td>
+       <td scope="col">cd/bls/warehouse/default/blsetlusr/scripts;./utilLogCleanup.sh&gt;&gt;/bls/projects/default/blsetlusr/logs/cron.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">150</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">20</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">tue-thu</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_NightlyMerchListener.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">151</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">22</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">tue-thu</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_NightlyBatchAllocListener.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">152</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">17</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">fri</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_FridayInvListener.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">153</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">50</td>
+       <td scope="col">20</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">fri</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_FridayBatchAllocListener.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">154</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">20</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sat</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_SaturdayBatchAllocListener.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">155</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">17</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sun</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_SundayBatchAllocListener.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">156</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">05</td>
+       <td scope="col">17</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">fri</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_FridayBatchInv.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">157</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sat</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_SaturdayBatchAlloc.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">158</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">05</td>
+       <td scope="col">17</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">sun</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_SundayBatchAlloc.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">159</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">05</td>
+       <td scope="col">20</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">tue-thu</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_NightlyMerch.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">160</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">59</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">tue-thu</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_NightlyBatchAlloc.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">161</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">20</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">mon</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_MondayMerch.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">162</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">59</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">mon</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_MondayBatchAlloc.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">163</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">00</td>
+       <td scope="col">01</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">tue</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_MondayBatchPlan.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">164</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">*/15</td>
+       <td scope="col">19-23,0-5</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">/bls/warehouse/default/blsetlusr/scripts/check_status/chk.sh&gt;/bls/warehouse/default/blsetlusr/scripts/check_status/chk.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">165</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">*/15</td>
+       <td scope="col">19-23,0-5</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">/bls/warehouse/default/blsetlusr/scripts/check_status/t.sh&gt;/bls/warehouse/default/blsetlusr/scripts/check_status/t.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">166</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">15</td>
+       <td scope="col">2</td>
+       <td scope="col">6</td>
+       <td scope="col">5</td>
+       <td scope="col">*</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_NightlyBatchAlloc.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">167</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">24</td>
+       <td scope="col">08</td>
+       <td scope="col">16</td>
+       <td scope="col">05</td>
+       <td scope="col">*</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--resume--schedule=/bls/projects/default/blsetlusr/conf/mdi1_FridayBatchPlan.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">168</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">15</td>
+       <td scope="col">5</td>
+       <td scope="col">17</td>
+       <td scope="col">5</td>
+       <td scope="col">*</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--resume--schedule=/bls/projects/default/blsetlusr/conf/mdi1_SaturdayBatchPlan.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">169</td -->
+       <!--td scope="col">BLS</td -->
+       <td scope="col">43</td>
+       <td scope="col">22</td>
+       <td scope="col">26</td>
+       <td scope="col">5</td>
+       <td scope="col">*</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file=/sso/sfw/ghusps-toolkit/config/BLS_MP_68_PROD.json--schedule=/bls/projects/default/blsetlusr/conf/mdi1_NightlyMerchListener.xml&gt;&gt;/bls/warehouse/default/logs/BLS_MP_68_PROD_`date+\%Y\%m\%d_\%H\%M\%S`.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">Y</td>
+       <td scope="col">None</td>
+    </tr>
+    
+    
+    
+  </tbody>
+</table>
+
+    
+</div>     
+
+</body>
+</html>

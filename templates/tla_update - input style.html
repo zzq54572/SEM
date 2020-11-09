@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+
+  <form action={{url_for('tla_update')}} method="POST">
+   <span class="btn btn-outline-dark">TLA ></span></span>
+
+  {{form.query_string(width="20px" )}}{{form.all(class="btn btn-outline-dark" )}}
+
+
+    </form>
+    
+    
+</div>   
+<p></p>
+
+<div class="card">
+  <div class="card-header">
+    Details of {{row.tla}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">TLA: {{row.tla}}</h5>
+    <p class="card-text"><span>Customer: </span>{{row.customer_name}}</p>
+    <p class="card-text"><span>Solution: </span>{{row.Solution}}</p>
+    <p class="card-text"><span>Teach Lead: </span>{{row.tl}}</p>
+    <p class="card-text"><span>Project Code: </span>{{row.project_code}}</p>
+    <p class="card-text"><span>Runbook URL: </span><a href="{{row.runbook_url}}" target="view_window">{{row.runbook_url}}</a></p>
+    <a href="crontab_query" class="btn btn-primary">Update</a>
+  </div>
+</div>
+
+
+    
+    
+    
+    <div class="container">
+
+  <form action={{url_for('tla_update')}} method="POST">
+   <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">TLA</span>
+       </div>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="tla" value="{{form.tla}}">
+   </div>
+ 
+    <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Customer</span>
+       </div>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="customer_name" value="{{form.customer_name}}">
+   </div>
+   
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Solution</span>
+       </div>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="solution" value="{{form.solution}}">
+   </div>
+   
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">TL</span>
+       </div>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="tl" value="{{form.tl}}">
+   </div>
+   
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Project</span>
+       </div>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="project_code" value="{{form.project_code}}">
+   </div>
+   
+      <div class="input-group mb-3">
+       <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Runbook</span>
+       </div>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="runbook_url" value="{{form.runbook_url}}">
+   </div>
+ 
+    </form>
+    
+    
+</div>   
+
+ 
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block left %}
+<div class="container">
+
+  <form action={{url_for('compliance_report_send')}} method="POST">
+   <input class="btn btn-primary" type="submit" name="send" value="Send"> &nbsp &nbsp &nbsp
+<input class="btn btn-primary" type="submit" name="cancel" value="Cancel">  <input type="text" name="report_name" value="{{ report_name }}" hidden="hidden">
+<div name=fromdata><textarea rows="500" cols="50" name="compliance_report" hidden="hidden" > {{compliance_report}}</textarea></div>
+
+   </form>
+    
+    
+</div>
+      <iframe  src={{ url_for('compliance_report_view')}} id="iframe_a"  name="iframe_a"  width="1200" height="800"></iframe>
+ </div>
+
+
+
+
+{% endblock %}
+

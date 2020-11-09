@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" >
+
+
+<script src="static/bootstrap/js/jquery-3.5.1.js"></script>
+
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+
+
+
+    {% block script %}
+     
+    {% endblock %} 
+    
+    
+<title>SSO ETL Monitoring</title>
+</head>
+<body id="body">
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-primary" style="background-color: #e3f2fd;" >
+<!--nav class="navbar navbar-light " -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="http://www.baidu.com">百度 </a>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Monitor
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item" href="/crontab_query">Crontab</a>
+          <a class="dropdown-item" href="/tla_query">TLA</a>
+            <a class="dropdown-item" href="/environment_query">Environment</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/regulation_query">Regulation</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/task_query">Task</a>
+          <a class="dropdown-item" href="/">Issue</a>
+        </div>
+      </li>
+            <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Operation
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/compliance_report_create">Compliance Report</a>
+            <a class="dropdown-item" href="/shiftwrap_report_view">ShiftWrap Report</a>
+          <a class="dropdown-item" href="/handoff_create">Hand off</a>
+          <a class="dropdown-item" href="/routineopt_comment">RoutineOpt</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Links
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" target="_blank" href="https://www.ondemand.sas.com/jira/secure/Dashboard.jspa?selectPageId=18690">My Dashboard</a>
+            <a class="dropdown-item" target="_blank" href="https://www.ondemand.sas.com/jira/secure/Dashboard.jspa?selectPageId=20448">ETL Dashboard</a>
+          <a class="dropdown-item" target="_blank" href="https://www.ondemand.sas.com/jira/secure/Dashboard.jspa?selectPageId=18690" target="_blank">Jira</a>
+          <a class="dropdown-item" target="_blank" href="https://sas.service-now.com/navpage.do">ServiceNow</a>
+          <a class="dropdown-item" target="_blank" href="https://www.ondemand.sas.com/confluencedoc/display/SSODMAS/Application+Managed+Services+Home+Page">Confluence</a>
+          <a class="dropdown-item" target="_blank" href="https://perc.na.sas.com/percHome.aspx?target=oncallGroupCalendar.aspx&group=SSOAPPMGT">PERC</a>
+          <a class="dropdown-item" target="_blank" href="https://status.ondemand.sas.com/zabbix/screens.php?form_refresh=1&elementid=51&groupid=234&hostid=0">Zabbix</a>
+          <a class="dropdown-item" target="_blank" href="https://securevault.sas.com/secretserver/Login.aspx?ReturnUrl=%2fsecretserver%2fSecretView.aspx%3fsecretid%3d27914&secretid=27914">Thycotic</a>
+		  <a class="dropdown-item" target="_blank" href="https://na8.replicon.com/SASGlobalProd/my/timesheet/earliest-not-submitted">Replicon</a>
+
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Help</a>
+      </li>
+    </ul>
+    <!--
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    -->
+  </div>
+</nav>
+<p></p>
+<div >
+  <div class="row">
+    <div class="col-sm-8" style="background-color: #cce5ff">
+
+    {% block left %}
+     
+    {% endblock %} 
+	</div>
+	
+    <div class="col-sm-4" style="background-color: #e3f2fd;">  
+	{% block right %}
+
+    {% endblock %}
+	</div>
+  </div>
+</body>
+
+
+</html>

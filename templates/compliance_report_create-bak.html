@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+    {% block script %}
+     <script>
+        var i = 1;
+        var j =1;
+        var k =1;
+        $(function () {
+            $("#ticket").on('click','.addp',function () {
+                //$('#pp').after($("#pp").clone());
+                var addP = $(this).parent().clone();
+                
+                //newticket=addP.children("input");
+                //$(newticket).attr({name:'ticketinput'+i});
+                
+                $(this).parent().after(addP);
+                $('#ticketp a').each(function (i,e) {
+                    $(e).text(i+1);
+                });
+                $('#ticketp input').each(function(i,e){
+                    $(e).attr({name:'ticketnum'+i})
+                
+                });
+            
+                    
+            });
+            $("#ticket").on("click",'.delp',function () {
+                $(this).parent().remove();
+                $('#ticketp a').each(function (j,e) {
+                    $(e).text(j+1);
+                });
+                 
+            });
+            
+            $("#snticket").on('click','.addp',function () {
+                //$('#pp').after($("#pp").clone());
+                var addP = $(this).parent().clone();
+                
+                //newticket=addP.children("input");
+                //$(newticket).attr({name:'ticketinput'+i});
+                
+                $(this).parent().after(addP);
+                $('#snticketp a').each(function (i,e) {
+                    $(e).text(i+1);
+                });
+                $('#snticketp input').each(function(i,e){
+                    $(e).attr({name:'snticketnum'+i})
+                
+                });
+            
+                    
+            });
+            $("#snticket").on("click",'.delp',function () {
+                $(this).parent().remove();
+                $('#snticketp a').each(function (j,e) {
+                    $(e).text(j+1);
+                });
+                 
+            });
+            
+            $("#smallfile").on('click','.addp',function () {
+                //$('#pp').after($("#pp").clone());
+                var addP = $(this).parent().clone();
+                $(this).parent().after(addP);
+                $('#smallfilep a').each(function (i,e) {
+                    $(e).text(i+1);
+                });
+                $('#smallfilep input').each(function(i,e){
+                    $(e).attr({name:'smallfilenum'+i})
+                
+                });
+            });
+            $("#smallfile").on("click",'.delp',function () {
+                $(this).parent().remove();
+                $('#smallfilep a').each(function (k,e) {
+                    $(e).text(k+1);
+                });
+            });
+            $("#task").on('click','.addp',function () {
+                //$('#pp').after($("#pp").clone());
+                var addP = $(this).parent().clone();
+                $(this).parent().after(addP);
+                $('#taskp a').each(function (i,e) {
+                    $(e).text(i+1);
+                })
+                 $('#taskp input').each(function(i,e){
+                    $(e).attr({name:'tasknum'+i})
+                
+                });
+            });
+            $("#task").on("click",'.delp',function () {
+                $(this).parent().remove();
+                $('#taskp a').each(function (i,e) {
+                    $(e).text(i+1);
+                });
+            });
+            
+             $("#principal").change(function(){
+                monitored_by=$(this).val();
+                //alert($(".monitoredbya").attr("name"))
+                $(".monitored_by_principal").each(function (i,e) {
+                    //alert($(e).attr("name"));
+                    //alert(e.name);
+                    $(e).val(monitored_by);
+                });
+            });
+            $("#assistant").bind("change",function () {
+                monitored_by=$(this).val();
+                $('.monitored_by_assistant').each(function (i,e) {
+                    $(e).val(monitored_by);
+                });
+            });            
+            
+        });
+ 
+     
+
+    </script>
+    {% endblock %} 
+    
+    
+{% block left %}
+<form  action={{url_for("compliance_report_create")}} method="POST">
+<div  align="center">
+<span style="font:24px bold">Principal</span><select name="principal" id="principal" style="background-color: #e3f2fd; color:red; width: 100;" >
+<option value="Huilian Yan"  > Huilian Yan </option>
+<option value="Lingli Shen"   >Lingli Shen</option> 
+<option value="Zhihui Zhang"  > Zhihui Zhang </option>
+<option value="Zhiqiang Zhang"  > Zhiqiang Zhang </option>
+<option value="Zhong Liu"   >Zhong Liu</option> 
+<option value="None"   selected> </option> 
+</select> &nbsp &nbsp &nbsp 
+<span style="font:24px bold">Assistant</span><select name="assistant" id="assistant" style="background-color: #e3f2fd; color:green; width:100;">
+<option value="Huilian Yan"  > Huilian Yan </option>
+<option value="Lingli Shen"   >Lingli Shen</option> 
+<option value="Zhihui Zhang"  > Zhihui Zhang </option>
+<option value="Zhiqiang Zhang"  > Zhiqiang Zhang </option>
+<option value="Zhong Liu"  >Zhong Liu</option> 
+<option value="None"   selected> </option>
+</select>&nbsp &nbsp &nbsp &nbsp &nbsp
+<input class="btn btn-primary" type="submit" name="create" value="Create"> &nbsp &nbsp &nbsp
+<input class="btn btn-primary" type="submit" name="submit" value="Cancel">
+
+</div>
+<div>
+<ul>
+<li>
+Have you respond/reply Cary, customer or other parties request or questions(JIRA, EMAIL,SN,..)? (YES/NO): 
+<p><select name="is_respond"  style="background-color: #e3f2fd; color:green; width: 100;" onChange="this.style.color=this.options[this.selectedIndex].style.color">
+<option value="Yes" style=" color: red;"><span style="color: green">YES</span></option>
+<option value="No" style=" color: green;" selected>NO</option>
+</select></p>
+
+</li>
+<li>Tickets (JIRA, SN) assigned to [CRD,AMS, AMS Pune]:
+<ul name='alltickets'>
+<li>Jira Tickets </li>
+
+<div id="ticket"><p id="ticketp"><a>1</a><input type="text" id="ticketinput" name="ticketnum" style="background-color: #e3f2fd; width:200px;" value={{ticket}}><button  type="button"  class='addp'>+</button><button type="button" class='delp'>-</button></p></div>
+
+<li>ServiceNow Tickets</li>
+
+<div id="snticket"><p id="snticketp"><a>1</a><input type="text" id="ticketinput" name="snticketnum" style="background-color: #e3f2fd; width:200px;" value={{ticket}}><button  type="button"  class='addp'>+</button><button type="button" class='delp'>-</button></p></div>
+
+</ul>
+
+</li>
+<li>Walmart Small File tickets + Walmart Duplicate Files: 
+<div id="smallfile"><p id="smallfilep"><a>1</a><input type="text"  id="smallfileinput" name="smallfilenum"  style="background-color: #e3f2fd;"><button type="button" class='addp'>+</button><button type="button" class='delp'>-</button></p></div>
+</li>
+
+<li>Other Tasks (From Email, IM, call, etc.): 
+  <div id="task"><p id="taskp"><a>1</a><input type="text"  id="taskinput"  name="tasknum"  style="background-color: #e3f2fd;"><button type="button" class='addp'>+</button><button type="button" class='delp'>-</button></p></div>
+      
+</li>
+
+
+</ul>
+</div>
+{% for row in rows %}
+
+<div class="card container"  style="background-color: #cce5ff; align: center" >
+
+ <div class="card-body" >
+    <p><span style="font:24px bold">{{row.tla}}-{{row.deployment_type}}&gt</span>
+    <select name="{{row.tla}}_{{row.deployment_type}}_status" style="background-color: #e3f2fd;" onChange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
+<option value="Running" style=" background-color: green;" {% if row.tla in ["AMV","CHO","ANFSO","ANFLPO"] %}selected{% endif %}>Running</option>
+<option value="Done" {% if row.tla in ["ASK","ASM","ASU","ASV","AMM","AMU"] %} selected{% endif %}>Done</option>
+<option value="Error" style="background-color: red">Error</option>
+<option value="No Activity" style="background-color: #e3f2fd;" >No Activity</option>
+<option value="Not Started" style="background-color: #e3f2fd;" {% if row.tla in ["ACS","AMK","BLS","CSP","JCG"] %}selected{% endif %}>Not Started</option>
+<option value="No Error" style="background-color: #e3f2fd;" {% if row.tla in ["BMI","ESR","WBR","WCA","WCL","WIA","WIN","WMX","WPN","WUK","WZA","NCF","NCJ","CMA","TPB","LLY","CSE","MCD","STR","UNV","UMS","HIL","HRS","DIG"] %}selected{% endif %}>No Error</option>
+<option  hidden  >&nbsp</option>
+</select>
+ &nbsp &nbsp 
+<span style="font:24px bold">Comment&gt </span><span><input type="text" name="{{row.tla}}_{{row.deployment_type}}_comment" style="background-color: #e3f2fd;"></span>  
+
+ &nbsp &nbsp 
+
+<span style="font:24px bold">monitoredby&gt </span><span ><input type="text" name="{{row.tla}}_{{row.deployment_type}}_monitored_by" class="monitored_by_{{row.duty_rank}}"  style="background-color: #e3f2fd;" value="{{row.monitored_by}}"><input type="text" name="{{row.tla}}_{{row.deployment_type}}_duty_rank" value="{{row.duty_rank}}"></span> 
+  </p>
+  </div>
+</div>
+
+
+{% endfor %}
+ </form>
+{% endblock %}

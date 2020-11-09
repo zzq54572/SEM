@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+
+  <form action={{url_for('crontab_query')}} method="POST" enctype="multipart/form-data">
+   <span class="btn btn-outline-dark">TLA ></span></span>
+      <input type="text" id="tlaa" name="tlaa" style="background-color: #e3f2fd; width:200px;" value="{{ tla }}" hidden>
+
+      <select name="tla" id="tla" style="background-color: #e3f2fd; color:red; width: 200px;" onchange="this.nextSibling.value=this.value"  >
+       {% for tla in tlas %}
+        <option value="{{ tla }}" {% if tla==cur_tla %} selected="selected" {% endif %}> {{ tla }}</option>
+        {% endfor %}
+       </select><input name="tla_b" style="width:100px;position:relative;left:0px;">
+
+      <span class="btn btn-outline-dark">ENV </span>
+      <select class="env" name="env" style="background-color: #e3f2fd;" >
+<option value="PROD" {% if env=="PROD" %} selected="selected" {% endif %} style=" background-color: #e3f2fd;" >PROD</option>
+<option value="TEST" {% if env=="TEST" %} selected="selected" {% endif %} style="background-color: #e3f2fd;" >TEST</option>
+<option value="DEV" {% if env=="DEV" %} selected="selected" {% endif %} style="background-color: #e3f2fd" >DEV</option>
+<option value="MOD" {% if env=="MOD" %} selected="selected" {% endif %} style="background-color: #e3f2fd;">MOD</option>
+<option value="PSP" {% if env=="PSP" %} selected="selected" {% endif %} style="background-color: #e3f2fd;" >PSP</option>
+</select>
+<div hidden name="not in using">
+   <span class="btn btn-outline-dark">Period </span>
+      <select class="" name="period" style="background-color: #e3f2fd;" >
+<option value="ALL"  style=" background-color: #e3f2fd;" >ALL</option>
+<option value="-30 Min"  style="background-color: #e3f2fd;" >-30 Min</option>
+<option value="-60 Min"  style="background-color: #e3f2fd" >-60 Min</option>
+<option value="-4 Hour"  style="background-color: #e3f2fd;">-4 Hour</option>
+<option value="-8 Hour"  style="background-color: #e3f2fd;" >-8 Hour"</option>
+<option value="+30 Min"  style="background-color: #e3f2fd" >+30 Min</option>
+<option value="+60 Min"  style="background-color: #e3f2fd;">+60 Min</option>
+<option value="+4 Hour"  style=" background-color: #e3f2fd;" >+4 Hour</option>
+<option value="+8 Hour"  style="background-color: #e3f2fd;" >+8 Hour</option>
+</select>
+</div>
+  <span class="btn btn-success fileinput-button"> <input type="file" id="crontab_src" name="crontab_src"  ></span>
+      <button class="btn btn-primary" type="submit" id="button-addnew" name="reload">Reload</button>
+      <button class="btn btn-primary" type="submit" id="button-addnew" name="querymail">QueryMail</button>
+      </p>
+
+<p>
+      <span >From </span><input type="text" name="period_beg" style="background-color: #e3f2fd; " ><span >minutes ago To</span>
+      <input type="text" name="period_end" style="background-color: #e3f2fd; " ><span > minutes later</span>
+
+      <button class="btn btn-primary" type="submit" id="button-query" name="query">Query</button>
+
+  <p><h1>Crontab Details</h1></p>
+
+    </form>
+
+
+</div>   
+ <iframe src={% if tla!="" %} {{  url_for("crontab_query_content")}} {% else %} {{  url_for("NULL")}} {% endif %}   name="iframe_a"  width="1200" height="800"></iframe>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block right %}
+
+{% endblock %}

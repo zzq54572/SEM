@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block script %}
+    <script>
+    function refreshOpt(){
+        var form = document.getElementById("routineopt");
+        form.submit();
+    }
+    function fillOpt(){
+        var optvalue=document.getElementById("routineopt_tla");
+        var comment=document.getElementById("routineopt_comment");
+
+        var note= $(optvalue).val();
+        //alert(note);
+        var reg=new RegExp("#n#","g")
+        note=note.replace(reg,"\n");
+        //alert(note);
+        $(comment).text(note);
+
+
+    }
+
+    </script>
+
+{% endblock %}
+
+
+
+{% block left %}
+
+
+    <div class="handoff">
+
+    <form id="routineopt" action={{url_for('routine_comment_submit')}} method="POST">
+<div align="center">
+    <span>TLA:</span>>
+    <select onchange="refreshOpt();" name="tla" id="tla" style="background-color: #e3f2fd; color:red; width: 150px;" >
+        {% for tla in tlas %}
+        <option value="{{ tla }}" {% if form["tla"] == tla %} selected {% endif %} > {{ tla }}</option>
+        {% endfor %}
+        <option value="NULL" {% if form["tla"] == "NULL" %} selected {% endif %} > </option>
+    </select> &nbsp &nbsp &nbsp
+
+    <span>Options:</span>>
+    <select onchange="fillOpt();" name="routineopt_tla" id="routineopt_tla" style="background-color: #e3f2fd; color:red; width: 150px;" >
+        {% for routineopt, routineopt_comment in routineopts.items() %}
+        <option value="{{ routineopt_comment }}" > {{ routineopt }} </option>
+        {% endfor %}
+        <option value="null" selected></option>
+    </select> &nbsp &nbsp &nbsp
+    <input class="btn btn-primary" type="submit" name="routineopt_submit" value="Submit">
+</div>
+    <div style=" overflow-y:auto; overflow-x:auto;height:900px;">
+
+
+<div class="card container" >
+  <div class="card-header">
+      <span style="color:red;font-size: larger">RountineOpt Comment:</span>> <p><textarea name="routineopt_comment" id="routineopt_comment" style="min-height:150px;min-width:450px;max-height:150px;max-width:450px;"> </textarea></p>
+  </div>
+</div>
+
+    </div>
+</form>
+    </div>
+{% endblock %}

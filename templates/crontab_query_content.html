@@ -1,0 +1,57 @@
+<html>
+<head>
+ <meta charset="utf-8">
+    <script src="static/bootstrap/js/jquery-3.5.1.js"></script>
+
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+
+
+ </head>
+
+<body>
+<div class="container">
+
+<p></p>
+    <table class="table " style="border:2px solid blue;">
+  <thead>
+    <tr  style="border:2px solid blue;">
+      <!-- th scope="col">tla</th -->                 
+       <th scope="col"  style="border:1px dashed blue; text-align:center;" >Minute</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Hour</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Day</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Month</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Week</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;" >Command</th>
+       <!-- th scope="col">crontab</th -->
+       <th scope="col"  style="border:1px dashed blue;">Enabled</th>
+       <th scope="col"  style="border:1px dashed blue;">Key Words</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">{{row.id}}</td -->
+       <!--td scope="col">{{row.tla}}</td -->
+       <td scope="col">{{row.minute}}</td>
+       <td scope="col">{{row.hour}}</td>
+       <td scope="col">{{row.day}}</td>
+       <td scope="col">{{row.month}}</td>
+       <td scope="col">{{row.wday}}</td>
+       <td scope="col">{{row.command}}</td>
+       <!-- td scope="col">{{row.crontab}}</td -->
+       <td scope="col">{{row.enabled}}</td>
+       <td scope="col">{{row.key_words}}</td>
+    </tr>
+    
+    
+    {% endfor %}
+  </tbody>
+</table>
+
+    
+</div>     
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block left %}
+<div class="container">
+
+  <form action={{url_for('tla_query')}} method="POST">
+   <span class="btn btn-outline-dark">TLA ></span></span>
+
+  {{form.query_string(width="20px" )}}{{form.all(class="btn btn-outline-dark" )}}
+  <p><h1>TLA Details</h1></p>
+
+    </form>
+    
+    
+</div>   
+{% for row in rows %}
+<form action={{url_for('tla_update')}} method="POST">
+<div hidden='hidden'>
+<input type="text" name="id" value="{{row.id}}">
+<input type="text" name="tla" value="{{row.tla}}">
+<input type="text" name="customer_name" value="{{row.customer_name}}">
+<input type="text" name="solution" value="{{row.solution}}">
+<input type="text" name="tl" value="{{row.tl}}">
+<input type="text" name="project_code" value="{{row.project_code}}">
+<input type="text" name="runbook_url" value="{{row.runbook_url}}">
+</div>
+<div class="card container">
+  <div class="card-header">
+    Details of {{row.tla}}
+  </div>
+  <div class="card-body">
+    <p class="card-text" hidden='hidden'><span>id: </span>{{row.id}}</p>
+    <h5 class="card-title">TLA Name: {{row.tla}}</h5>
+    <p><select name="{{row.tla}}">
+<option value="Running"><span style="color: green">Running</span></option>
+<option value="Done">Done</option>
+<option value="Error"><span style="color: red">Error</span></option>
+<option value="No Activity">No Activity</option>
+<option value="Not Started">Not Started</option>
+</select></p>
+    <p class="card-text">Comment<span><input type="text" name="{{row.tla}}_comment" ></span></p>
+  </div>
+</div>
+</form>
+{% endfor %}
+ 
+{% endblock %}

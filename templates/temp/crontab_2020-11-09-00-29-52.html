@@ -1,0 +1,281 @@
+<html>
+<head>
+ <meta charset="utf-8">
+    <script src="static/bootstrap/js/jquery-3.5.1.js"></script>
+
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+
+
+ </head>
+
+<body>
+<div class="container">
+
+<p></p>
+    <table class="table " style="border:2px solid blue;">
+  <thead>
+    <tr  style="border:2px solid blue;">
+      <!-- th scope="col">tla</th -->                 
+       <th scope="col"  style="border:1px dashed blue; text-align:center;" >Minute</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Hour</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Day</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Month</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;">Week</th>
+       <th scope="col"  style="border:1px dashed blue; text-align:center;" >Command</th>
+       <!-- th scope="col">crontab</th -->
+       <th scope="col"  style="border:1px dashed blue;">Enabled</th>
+       <th scope="col"  style="border:1px dashed blue;">Key Words</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">559</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">*/5</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">/asv/projects/default/asvmi/bin/sso_run_error_check.py-c/asv/projects/default/asvmi/conf/asv_config.txt--look-back=10--log-level=DEBUG--locate-zabbix-args2&gt;&amp;1&gt;&gt;/asv/projects/default/asvmi/logs/sso_run_error_check.log</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">560</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">59</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">source/asv/projects/default/asvmi/bin/crontab_backup.sh&gt;~/crontab_backup.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">561</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">59</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">cd/sso/sfw/LoadMgr/logs;/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_file_handler.py--file_handlerCompress_HLM_Logs--config_file=/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">562</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">0</td>
+       <td scope="col">15</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">0</td>
+       <td scope="col">cd/asv/projects/default/asvmi;/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--schedule/asv/projects/default/asvmi/conf/asv_weekly_sched_prod.xml</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">563</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">*/5</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">0</td>
+       <td scope="col">/asv/projects/default/asvmi/bin/warehouse_monitor.sh&gt;&gt;/asv/projects/default/logs/warehouse_monitor.log</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">564</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">15,45</td>
+       <td scope="col">07-19</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">1-5</td>
+       <td scope="col">cd/asv/projects/default/asvmi;/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--schedule/asv/projects/default/asvmi/conf/b8_intraday_sched_prod.xml</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">565</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">0</td>
+       <td scope="col">21</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">1-5</td>
+       <td scope="col">cd/asv/projects/default/asvmi;/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--schedule/asv/projects/default/asvmi/conf/b8_nightly_sched_prod.xml</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">566</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">00</td>
+       <td scope="col">22</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">6</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_file_handler.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--file_handler%269_delete_backup_directory%</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">567</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">06</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">6</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_file_handler.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--file_handler%ASV_Compress_backup_directory%</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">568</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">07</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">6</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_file_handler.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--file_handler%ASV_delete_DM_tar_file%</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">569</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">08</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">6</td>
+       <td scope="col">/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_file_handler.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--file_handler%ASV_delete_DM_log_file%</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">570</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">05</td>
+       <td scope="col">23</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">6</td>
+       <td scope="col">cd/asv/projects/default/asvmi;/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--schedule/asv/projects/default/asvmi/conf/asv_saturday_maint_prod.xml</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">571</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">01,16,31,46</td>
+       <td scope="col">19-23,0-8</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">*</td>
+       <td scope="col">/sso/sfw/LoadMgr/src/custom/check_status/check_status.sh&gt;/sso/sfw/LoadMgr/src/custom/check_status/check_status.sh.log2&gt;&amp;1</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">572</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">00</td>
+       <td scope="col">22</td>
+       <td scope="col">28</td>
+       <td scope="col">06</td>
+       <td scope="col">*</td>
+       <td scope="col">cd/asv/projects/default/asvmi;/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--schedule/asv/projects/default/asvmi/conf/asv_weekly_sched_prod.xml--resume--skip_dependencies</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+    <tr  style="border:2px solid blue;">
+    <!--td scope="col">573</td -->
+       <!--td scope="col">ASV</td -->
+       <td scope="col">56</td>
+       <td scope="col">13</td>
+       <td scope="col">24</td>
+       <td scope="col">07</td>
+       <td scope="col">*</td>
+       <td scope="col">cd/asv/projects/default/asvmi;/sso/sfw/ghusps-toolkit/toolkit_venv/bin/python/sso/sfw/ghusps-toolkit/ams-toolkit/src/Toolkit/Controllers/ams_schedule_launcher.py--config_file/asv/projects/default/asvmi/conf/ASV_SPO_34_PROD.json--schedule/asv/projects/default/asvmi/conf/asv_saturday_maint_prod.xml</td>
+       <!-- td scope="col"></td -->
+       <td scope="col">enabled</td>
+       <td scope="col"></td>
+    </tr>
+    
+    
+    
+  </tbody>
+</table>
+
+    
+</div>     
+
+</body>
+</html>
